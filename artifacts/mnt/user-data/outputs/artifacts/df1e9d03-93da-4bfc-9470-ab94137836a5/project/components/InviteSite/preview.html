@@ -1,0 +1,25 @@
+<!-- @dsCard group="Templates" height=2900 page subtitle="The full invite page, in order" -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>InviteSite — Vivaha</title></head>
+<body>
+<div id="root" class=""></div>
+<script>
+var V = window.Vivaha, h = React.createElement;
+
+var EVENTS = [
+  { tone: 'engagement', day: 'Day one', name: 'Engagement', description: 'The families exchange rings and blessings as the couple are formally promised to each other.', date: 'Saturday, 12 December 2026', time: '6:30 pm onwards', timeNote: 'Dinner follows', venue: 'Kalyana Mantapa, main hall' },
+  { tone: 'wedding', day: 'Day two', name: 'Wedding', description: 'The muhurtha, followed by lunch served on banana leaf.', date: 'Sunday, 13 December 2026', time: 'Muhurtha 10:15 am', timeNote: 'Please be seated by 9:45 am', venue: 'Kalyana Mantapa, main hall' }
+];
+var HERO = { bride: 'Ananya', groom: 'Rohan', intro: 'request the pleasure of your company at their engagement and wedding.', events: [{ label: 'Engagement', date: 'Sat, 12 December' }, { label: 'Wedding', date: 'Sun, 13 December' }], place: 'Kalyana Mantapa · City', primaryCta: { href: '#events', label: 'View the events' }, secondaryCta: { href: '#venue', label: 'Venue' } };
+var VENUE = { eyebrow: 'The venue', name: 'Kalyana Mantapa', address: 'Street address, Area, City – PIN', note: 'Both days are at the same venue. Parking is available on site.', mapHref: '#' };
+ReactDOM.createRoot(document.getElementById('root')).render(h('div', null,
+  h(V.Hero, HERO),
+  h('section', { className: 'vv-section' }, h(V.Countdown, { date: '2026-12-13T10:15:00+05:30', label: 'Until the muhurtha' })),
+  h('section', { className: 'vv-section vv-section-sandal', id: 'events' }, h(V.SectionHeading, { eyebrow: 'You are invited', title: 'Two Days of Celebration' }),
+    h('div', { className: 'vv-ev-grid' }, EVENTS.map(function (e) { return h(V.EventCard, Object.assign({ key: e.name }, e)); }))),
+  h('section', { className: 'vv-section', id: 'venue' }, h(V.SectionHeading, { eyebrow: 'Getting there', title: 'Venue', motif: 'lamp' }), h(V.VenueCard, VENUE)),
+  h(V.Footer, { a: 'A', b: 'R', names: 'Ananya & Rohan', note: 'With love, from both our families. We look forward to celebrating with you.' })));
+</script>
+</body>
+</html>

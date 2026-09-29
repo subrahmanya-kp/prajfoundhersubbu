@@ -1,0 +1,103 @@
+{
+ "v": 3,
+ "layout": "files",
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-09-24T05:33:40Z"
+ },
+ "title": "Vivaha \u2014 Kannada Engagement & Wedding",
+ "namespace": "Vivaha",
+ "libraries": [
+  {
+   "name": "react",
+   "version": "18"
+  },
+  {
+   "name": "react-dom",
+   "version": "18"
+  }
+ ],
+ "sections": {},
+ "groups": [
+  "Logos",
+  "Motifs"
+ ],
+ "assetGroups": {
+  "Logos": {
+   "name": "Logos",
+   "tile": "m",
+   "order": [
+    "monogram-template.svg",
+    "monogram-template-on-maroon.svg"
+   ],
+   "files": {
+    "monogram-template.svg": {
+     "name": "monogram-template.svg",
+     "blob": "2d30cc3887a2a6abff9df0521b5c5904",
+     "size": 743,
+     "type": "image/svg+xml"
+    },
+    "monogram-template-on-maroon.svg": {
+     "name": "monogram-template-on-maroon.svg",
+     "blob": "dcce2fe57573026fe9cf00d7ababf7c4",
+     "size": 743,
+     "type": "image/svg+xml"
+    }
+   }
+  },
+  "Motifs": {
+   "name": "Motifs",
+   "tile": "s",
+   "order": [
+    "toran-jasmine.svg",
+    "lamp.svg",
+    "jasmine.svg",
+    "kalash.svg",
+    "lotus.svg"
+   ],
+   "files": {
+    "toran-jasmine.svg": {
+     "name": "toran-jasmine.svg",
+     "blob": "5b51020a14e6a54c458b3e5990f76181",
+     "size": 9859,
+     "type": "image/svg+xml"
+    },
+    "lamp.svg": {
+     "name": "lamp.svg",
+     "blob": "3083c3a3fd8e7a8a012be9879e23cebf",
+     "size": 595,
+     "type": "image/svg+xml"
+    },
+    "jasmine.svg": {
+     "name": "jasmine.svg",
+     "blob": "bfda74c0b0c392147a38f097c4e6a0ac",
+     "size": 792,
+     "type": "image/svg+xml"
+    },
+    "kalash.svg": {
+     "name": "kalash.svg",
+     "blob": "115d510380568ef75f30d5606b10bff1",
+     "size": 551,
+     "type": "image/svg+xml"
+    },
+    "lotus.svg": {
+     "name": "lotus.svg",
+     "blob": "3db6df91507b3a301e8f873e8115b97a",
+     "size": 525,
+     "type": "image/svg+xml"
+    }
+   }
+  }
+ },
+ "blobs": {},
+ "docs": {
+  "readme": "project/README.md",
+  "sections": []
+ },
+ "lastChange": {
+  "by": "Subrahmanya",
+  "at": "2026-09-24T05:33:40Z",
+  "via": "Claude chat",
+  "note": "Reworked for a South Indian (Kannada) two-day invite: engagement and wedding; English only."
+ }
+}

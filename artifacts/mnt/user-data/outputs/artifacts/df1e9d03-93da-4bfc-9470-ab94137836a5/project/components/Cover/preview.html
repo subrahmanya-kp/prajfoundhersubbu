@@ -1,0 +1,71 @@
+<!-- @dsCard height=320 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vivaha</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--ivory); color:var(--ink); font-family:var(--font-body); overflow:hidden; }
+  .cover { position:relative; width:960px; height:320px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:320px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:320px; }
+  .maroon { fill:var(--maroon); }
+  .kumkum { fill:var(--kumkum); }
+  .tgold { fill:var(--temple-gold); }
+  .bud { fill:var(--jasmine); stroke:var(--temple-gold); stroke-width:1; }
+  .leaf { fill:var(--leaf); }
+  .zari-line { fill:none; stroke:var(--temple-gold); stroke-width:1.5; }
+  .words { position:absolute; left:var(--space-12); bottom:var(--space-12); max-width:420px; }
+  .name { margin:0; font-family:var(--font-display); font-style:italic; font-weight:500; font-size:120px; line-height:.92; letter-spacing:-.01em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 6px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 320" width="480" height="320">
+<!--
+  blocks      maroon arch 160 wide (the identity colour, tallest) · kumkum arch 112 · temple-gold arch 96 · leaf arch 64 — four doorways stepping down, bottoms bleeding off the lower edge; ~40% of the cover
+  arrangement a staggered row of mehrab arches, tops at 32/112/160/208, space-4 gutters, the maroon one framed by an inset zari hairline like a gilded door
+  pattern     literal motif — the toran: a zari swag at a space-8 pitch with jasmine buds (one or two per strand, temple-gold outline), from "the toran hangs across the top, the way it hangs over the door"
+  scales      gutters space-4; pitch space-8 (32px); arch tops = half the arch width (radius-arch shape); buds 9×15
+-->
+<path class="maroon" d="M16 320 V112.0 A80.0 80.0 0 0 1 176 112.0 V320 Z"/>
+<path class="kumkum" d="M192 320 V168.0 A56.0 56.0 0 0 1 304 168.0 V320 Z"/>
+<path class="tgold" d="M320 320 V208.0 A48.0 48.0 0 0 1 416 208.0 V320 Z"/>
+<path class="leaf" d="M432 320 V240.0 A32.0 32.0 0 0 1 496 240.0 V320 Z"/>
+<path class="zari-line" d="M32 320 V112 A64 64 0 0 1 160 112 V320"/>
+<path class="zari-line" d="M0 16 Q16 28 32 16 Q48 28 64 16 Q80 28 96 16 Q112 28 128 16 Q144 28 160 16 Q176 28 192 16 Q208 28 224 16 Q240 28 256 16 Q272 28 288 16 Q304 28 320 16 Q336 28 352 16 Q368 28 384 16 Q400 28 416 16 Q432 28 448 16 Q464 28 480 16 Q496 28 512 16"/>
+<ellipse class="bud" cx="16" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="16" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="48" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="80" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="80" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="112" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="144" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="144" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="176" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="208" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="208" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="240" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="272" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="272" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="304" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="336" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="336" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="368" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="400" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="400" cy="52" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="432" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="464" cy="34" rx="4.5" ry="7.5"/>
+<ellipse class="bud" cx="464" cy="52" rx="4.5" ry="7.5"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Vivaha</h1>
+<p class="tag">An engagement and wedding invite in maroon, temple gold and jasmine.</p>
+</div>
+</div>
+</body>
+</html>

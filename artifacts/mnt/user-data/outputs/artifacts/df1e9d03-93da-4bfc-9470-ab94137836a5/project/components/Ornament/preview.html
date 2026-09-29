@@ -1,0 +1,13 @@
+<!-- @dsCard group="Foundations" height=170 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ornament — Vivaha</title></head>
+<body>
+<div id="root" class="vv-stage"></div>
+<script>
+var V = window.Vivaha, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'vv-stack', style: { gap: '24px' } }, h(V.Ornament, { motif: 'jasmine' }), h(V.Ornament, { motif: 'lamp' }),
+  h('div', { style: { background: 'var(--maroon)', padding: '16px', borderRadius: 'var(--radius-md)' } }, h(V.Ornament, { motif: 'kalash', onDark: true }))));
+</script>
+</body>
+</html>

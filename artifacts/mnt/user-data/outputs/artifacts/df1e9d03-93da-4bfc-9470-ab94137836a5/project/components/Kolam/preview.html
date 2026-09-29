@@ -1,0 +1,13 @@
+<!-- @dsCard group="Foundations" height=170 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kolam — Vivaha</title></head>
+<body>
+<div id="root" class="vv-stage"></div>
+<script>
+var V = window.Vivaha, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'vv-row', style: { gap: '32px' } }, h(V.Kolam, { grid: 5, size: 120 }), h(V.Kolam, { grid: 3, size: 80, tone: 'kumkum' }), h(V.Kolam, { grid: 7, size: 120 }),
+  h('div', { style: { background: 'var(--maroon)', padding: '12px', borderRadius: 'var(--radius-md)', display: 'flex' } }, h(V.Kolam, { grid: 5, size: 110, tone: 'zari' }))));
+</script>
+</body>
+</html>

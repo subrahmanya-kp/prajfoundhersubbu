@@ -1,0 +1,14 @@
+<!-- @dsCard group="Foundations" height=110 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Icon — Vivaha</title></head>
+<body>
+<div id="root" class="vv-stage"></div>
+<script>
+var V = window.Vivaha, h = React.createElement;
+ReactDOM.createRoot(document.getElementById('root')).render(h('div', { className: 'vv-row', style: { gap: '24px' } }, V.Icon.names.map(function (n, i) {
+  return h('figure', { key: n, style: { margin: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px', width: '64px' } }, h(V.Icon, { name: n, size: 32, style: { color: ['var(--gold)', 'var(--kumkum)', 'var(--leaf)'][i % 3] } }), h('figcaption', { style: { fontSize: '12px', color: 'var(--ink-muted)' } }, n));
+})));
+</script>
+</body>
+</html>
