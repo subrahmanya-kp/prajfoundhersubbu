@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { Icon } from "@/components/vivaha";
 import { submitRSVP } from "@/lib/api";
@@ -41,6 +42,20 @@ export function RSVPForm() {
           <p style={{ color: "var(--ink-muted)" }}>
             Your RSVP has been received. We look forward to celebrating with you.
           </p>
+          {attending === "yes" ? (
+            <>
+              <p style={{ color: "var(--ink-muted)", marginTop: "var(--space-2)" }}>
+                Have photos from the celebrations? Share them with everyone.
+              </p>
+              <Link
+                href="/gallery"
+                className="vv-btn vv-btn-primary vv-btn-lg"
+                style={{ marginTop: "var(--space-4)" }}
+              >
+                <span>Upload Photos</span>
+              </Link>
+            </>
+          ) : null}
         </div>
       </div>
     );

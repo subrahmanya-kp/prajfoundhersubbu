@@ -74,6 +74,19 @@ class PhotoUploadViewTests(APITestCase):
 
         mock_backend.assert_not_called()
 
+    @patch("gallery.views.photo_upload.get_storage_backend", return_value=FakeStorageBackend())
+    def test_uploading_more_than_ten_photos_in_a_row_is_not_throttled(self, mock_backend):
+        # The upload endpoint has its own throttle scope (60/minute), separate
+        # from the global anon default (10/minute) shared by every other
+        # endpoint — guests uploading a batch of photos from one page visit
+        # must not hit the same limit that protects e.g. the gallery list.
+        for i in range(11):
+            file = make_uploaded_file("JPEG", "image/jpeg", name=f"photo{i}")
+            response = self.client.post(self.url, {"file": file}, format="multipart")
+            assert response.status_code == status.HTTP_201_CREATED, response.data
+
+        assert Photo.objects.count() == 11
+
 
 class PhotoListViewTests(APITestCase):
     def setUp(self):

@@ -53,6 +53,16 @@ export interface Photo {
   uploaded_at: string;
 }
 
+export class ApiError extends Error {
+  status: number;
+
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+  }
+}
+
 async function parseJsonOrThrow(res: Response) {
   const text = await res.text();
   let data: unknown;
@@ -64,7 +74,7 @@ async function parseJsonOrThrow(res: Response) {
   if (!res.ok) {
     const message =
       data && typeof data === "object" ? JSON.stringify(data) : text || res.statusText;
-    throw new Error(message);
+    throw new ApiError(message, res.status);
   }
   return data;
 }
@@ -75,9 +85,11 @@ export async function getEventDetails(): Promise<EventDetails> {
   return (await parseJsonOrThrow(res)) as EventDetails;
 }
 
-/** Client Components only — goes through the same-origin proxy rewrite. */
+/** Client Components only — goes through the same-origin proxy rewrite.
+ *  No trailing slash here: the rewrite destination in next.config.ts adds
+ *  the one Django needs after matching this path. */
 export async function submitRSVP(payload: RSVPPayload): Promise<RSVPResponse> {
-  const res = await fetch(`${CORE_PROXY_PATH}/rsvp/`, {
+  const res = await fetch(`${CORE_PROXY_PATH}/rsvp`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -87,7 +99,7 @@ export async function submitRSVP(payload: RSVPPayload): Promise<RSVPResponse> {
 
 /** Client Components only — goes through the same-origin proxy rewrite. */
 export async function getApprovedPhotos(): Promise<Photo[]> {
-  const res = await fetch(`${MEDIA_PROXY_PATH}/photos/`, { cache: "no-store" });
+  const res = await fetch(`${MEDIA_PROXY_PATH}/photos`, { cache: "no-store" });
   return (await parseJsonOrThrow(res)) as Photo[];
 }
 
@@ -97,7 +109,7 @@ export async function uploadPhoto(file: File, uploaderName?: string): Promise<Ph
   formData.append("file", file);
   if (uploaderName) formData.append("uploader_name", uploaderName);
 
-  const res = await fetch(`${MEDIA_PROXY_PATH}/photos/upload/`, {
+  const res = await fetch(`${MEDIA_PROXY_PATH}/photos/upload`, {
     method: "POST",
     body: formData,
   });

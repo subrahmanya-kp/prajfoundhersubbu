@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Mulish } from "next/font/google";
+import { GalleryFab } from "@/components/GalleryFab";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -23,7 +24,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${mulish.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <GalleryFab />
+      </body>
     </html>
   );
 }

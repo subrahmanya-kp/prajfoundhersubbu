@@ -16,6 +16,7 @@ export interface HeroProps {
   place?: string;
   primaryCta?: Link;
   secondaryCta?: Link;
+  tertiaryCta?: Link;
   toranCount?: number;
   id?: string;
   className?: string;
@@ -32,6 +33,7 @@ export function Hero({
   place,
   primaryCta,
   secondaryCta,
+  tertiaryCta,
   toranCount = 16,
   id,
   className,
@@ -66,7 +68,7 @@ export function Hero({
           </ul>
         ) : null}
         {place ? <p className="vv-hero-place">{place}</p> : null}
-        {primaryCta || secondaryCta ? (
+        {primaryCta || secondaryCta || tertiaryCta ? (
           <div className="vv-hero-ctas">
             {primaryCta ? (
               <Button variant="gold" size="lg" href={primaryCta.href}>
@@ -76,6 +78,11 @@ export function Hero({
             {secondaryCta ? (
               <Button variant="outline-light" size="lg" href={secondaryCta.href}>
                 {secondaryCta.label}
+              </Button>
+            ) : null}
+            {tertiaryCta ? (
+              <Button variant="outline-light" size="lg" href={tertiaryCta.href} icon="lotus">
+                {tertiaryCta.label}
               </Button>
             ) : null}
           </div>

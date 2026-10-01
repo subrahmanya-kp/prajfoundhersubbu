@@ -9,10 +9,12 @@ from storage.backends import get_storage_backend
 from ..image_validation import InvalidImageError, verify_is_real_image
 from ..models import Photo
 from ..schemas import PhotoResponse, PhotoUploadMetadata
+from ..throttling import PhotoUploadRateThrottle
 
 
 class PhotoUploadView(APIView):
     parser_classes = [parsers.MultiPartParser, parsers.FormParser]
+    throttle_classes = [PhotoUploadRateThrottle]
 
     def post(self, request, *args, **kwargs):
         uploaded_file = request.data.get("file")

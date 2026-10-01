@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from event.models import EventDetail
+from event.models import Ceremony, EventDetail
 
 VENUE_NAME = "Shree Radha Krishna Sabha Bhavana"
 ADDRESS = "Centralised A/C Hall, Karkala"
@@ -15,9 +15,28 @@ MAP_EMBED_URL = (
 )
 MAP_LINK = "https://maps.app.goo.gl/FZzM4KUUw8GbQuFK9"
 
+CEREMONIES = [
+    {
+        "order": 0,
+        "name": "Engagement",
+        "start_time": "2026-10-12T10:15:00+05:30",
+        "venue_name": VENUE_NAME,
+        "address": ADDRESS,
+        "description": "A small ceremony with family and close friends.",
+    },
+    {
+        "order": 1,
+        "name": "Wedding",
+        "start_time": "2026-12-13T10:15:00+05:30",
+        "venue_name": VENUE_NAME,
+        "address": ADDRESS,
+        "description": "The wedding ceremony, followed by lunch.",
+    },
+]
+
 
 class Command(BaseCommand):
-    help = "Seeds/updates the singleton EventDetail row with venue and map details."
+    help = "Seeds/updates the singleton EventDetail row and the Engagement/Wedding Ceremony rows."
 
     def handle(self, *args, **options):
         obj, created = EventDetail.objects.update_or_create(
@@ -34,3 +53,12 @@ class Command(BaseCommand):
         )
         verb = "Created" if created else "Updated"
         self.stdout.write(self.style.SUCCESS(f"{verb} EventDetail: {obj.venue_name}"))
+
+        for ceremony_data in CEREMONIES:
+            order = ceremony_data["order"]
+            ceremony, ceremony_created = Ceremony.objects.update_or_create(
+                order=order,
+                defaults=ceremony_data,
+            )
+            verb = "Created" if ceremony_created else "Updated"
+            self.stdout.write(self.style.SUCCESS(f"{verb} Ceremony: {ceremony.name} ({ceremony.start_time})"))
